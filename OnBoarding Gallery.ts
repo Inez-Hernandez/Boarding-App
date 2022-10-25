@@ -1,8 +1,7 @@
-/* Description: Gallery records are pulled from list the modOnBList filtered list from the OnVisible function on the Dashbaord screen.
-// the records Status value is set on the Onboarding OnVisible function
-// The sidebar filters are set in the below sort:
+// Description: Grabs the clear collected list from the Dashboard that sorts Employee list by Created column and orders descending
+sortOnBCreated
 
-*/
+/*
 Sort(
     If(
         FilterFlyoutMenu_1.checkBox_InProg = false && FilterFlyoutMenu_1.checkBox_Complete = false && FilterFlyoutMenu_1.checkBox_New = false,
@@ -40,10 +39,12 @@ Sort(
             EmpStatus = "New"
         )
     ),
-    EmpStartDate,
+    Created,
     If(
         FilterFlyoutMenu_1.SortFunction = "Descending",
         Descending,
         Ascending
     )
 )
+*/
+

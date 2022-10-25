@@ -44,10 +44,23 @@ ClearCollect(
     )
 );
 
-// Modification to view, users want to see all existing records, but sort by newest entries, will use the "Created" column to do the sort
-// // The following ClearCollects are for the Onboarding and Offboarding gallery Items lists respectively.
-// // These clear collects are filtering only for records that have start / end dates that are less than x days, so esentially after the 30 days of a records start or end date they are no longer included in the default list of items.
-// // These filtered lists are then used in the OnbaordingGallery and OffboardingGallery respecitively
+
+// Modification requested on 10/24/2022, sort list by latest entry added, remove the 60 day filters
+// Source: https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-sort#:~:text=Sort(%20IceCream%2C%20Quantity%2C%20SortOrder.Descending%20)
+ClearCollect(
+    sortOnBCreated,
+    Sort(Employee, Created, SortOrder.Descending)
+);
+
+ClearCollect(
+    sortOffBCreated,
+    Sort(OBEmployee, Created, SortOrder.Descending)
+);
+
+
+// The following ClearCollects are for the Onboarding and Offboarding gallery Items lists respectively.
+// These clear collects are filtering only for records that have start / end dates that are less than x days, so esentially after the 30 days of a records start or end date they are no longer included in the default list of items.
+// These filtered lists are then used in the OnbaordingGallery and OffboardingGallery respecitively
 // ClearCollect(
 //     modOffBList,
 //     Filter(

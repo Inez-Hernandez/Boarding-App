@@ -43,28 +43,30 @@ ClearCollect(
         Ascending
     )
 );
-// The following ClearCollects are for the Onboarding and Offboarding gallery Items lists respectively.
-// These clear collects are filtering only for records that have start / end dates that are less than x days, so esentially after the 30 days of a records start or end date they are no longer included in the default list of items.
-// These filtered lists are then used in the OnbaordingGallery and OffboardingGallery respecitively
-ClearCollect(
-    modOffBList,
-    Filter(
-        OBEmployee,
-        EmpEndDate > DateAdd(
-            Today(),
-            -60,
-            Days
-        )
-    )
-);
-ClearCollect(
-    modOnBList,
-    Filter(
-        Employee,
-        EmpStartDate > DateAdd(
-            Today(),
-            -60,
-            Days
-        )
-    )
-);
+
+// Modification to view, users want to see all existing records, but sort by newest entries, will use the "Created" column to do the sort
+// // The following ClearCollects are for the Onboarding and Offboarding gallery Items lists respectively.
+// // These clear collects are filtering only for records that have start / end dates that are less than x days, so esentially after the 30 days of a records start or end date they are no longer included in the default list of items.
+// // These filtered lists are then used in the OnbaordingGallery and OffboardingGallery respecitively
+// ClearCollect(
+//     modOffBList,
+//     Filter(
+//         OBEmployee,
+//         EmpEndDate > DateAdd(
+//             Today(),
+//             -60,
+//             Days
+//         )
+//     )
+// );
+// ClearCollect(
+//     modOnBList,
+//     Filter(
+//         Employee,
+//         EmpStartDate > DateAdd(
+//             Today(),
+//             -60,
+//             Days
+//         )
+//     )
+// );
